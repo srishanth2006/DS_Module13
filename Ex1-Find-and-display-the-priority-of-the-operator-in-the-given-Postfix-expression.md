@@ -1,26 +1,81 @@
 # EX 1 Display operator precedence in the infix expression.
-## DATE:
+## DATE: 24.04.2025
 ## AIM:
 To write a C program to find and display the priority of the operator in the given Postfix expression
 
 ## Algorithm
-1. 
-2. 
-3. 
-4.  
-5.   
+1. Start the program.
+2. Include the required libraries
+3. Define a function to display the priority of the operator in a postfix expression.
+4. Use if-else statements to specify the priority and return it.
+5. End the program.
 
 ## Program:
 ```
 /*
 Program to find and display the priority of the operator in the given Postfix expression
-Developed by: 
-RegisterNumber:  
+Developed by: SRISHANTH J
+RegisterNumber: 212223240160
 */
+
+#include <stdio.h>
+#include<string.h>
+
+    int priority(char x)
+{
+   if(x=='^')
+   return 1;
+   if(x=='*'||x=='%'||x=='/')
+   return 2;
+   if(x=='+'||x=='-')
+   return 3;
+   if(x=='&')
+   return 4;
+   else
+   return 0;
+}
+int main()
+{
+   int i,j;
+   char x;
+   char ch[100]="(A*B)^C+(D%H)/F&G";
+   for(i=0;i<strlen(ch);i++)
+   {
+       for(j=0;j<strlen(ch);j++)
+       {
+           if(ch[i]=='^'||ch[i]=='*'||ch[i]=='%'||ch[i]=='/'||ch[i]=='+'||ch[i]=='-'||ch[i]=='&')
+       {
+           x=ch[i];
+           if(priority(x)==1)
+           {
+               printf("%c  ----> Highest Priority\n",x);
+               break;
+           }
+           if(priority(x)==2)
+           {
+               printf("%c  ----> Second Highest Priority\n",x);
+               break;
+           }
+           if(priority(x)==3)
+           {
+              printf("%c  ----> Second Lowest Priority\n",x);
+              break;
+           }
+           if(priority(x)==4)
+           {
+             printf("%c  ----> Lowest Priority\n",x);
+             break;
+           }
+       } 
+       }
+   }
+    return 0;
+}
+   
 ```
 
 ## Output:
-
+![Screenshot 2025-04-30 091354](https://github.com/user-attachments/assets/8347dc7c-e98f-4c84-afba-5ad34524fa2f)
 
 
 ## Result:
